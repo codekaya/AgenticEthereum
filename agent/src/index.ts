@@ -162,7 +162,12 @@ import { trikonPlugin } from "@elizaos/plugin-trikon";
 import arbitragePlugin from "@elizaos/plugin-arbitrage";
 const __filename = fileURLToPath(import.meta.url); // get the resolved path to the file
 const __dirname = path.dirname(__filename); // get the name of the directory
+const customPlugins = [fetchTokenPriceAction];
 
+startAgent({
+  character: cryptoChillCharacter,
+  plugins: customPlugins,
+});
 export const fetchTokenPriceAction: Action = {
     name: "FETCH_TOKEN_PRICE",
     similes: ["GET_PRICE", "TOKEN_PRICE", "MARKET_PRICE"],
